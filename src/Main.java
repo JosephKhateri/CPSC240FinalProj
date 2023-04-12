@@ -1,6 +1,4 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.*;
 
 /**
  Initializing main class with fixed numbers of rows, columns, and mines
