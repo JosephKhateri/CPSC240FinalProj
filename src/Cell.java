@@ -8,4 +8,5 @@ public class Cell {
     revealed = new boolean[ROWS][COLS];
     neighborCounts = new int[ROWS][COLS];
 
+
 }

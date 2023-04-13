@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Minesweeper extends JFrame {
+    private final int ROWS = 10;
+    private final int COLS = 10;
     private final int MINE_COUNT = 10;
     private JButton[][] buttons;
     private boolean[][] mines;
