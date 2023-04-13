@@ -7,7 +7,7 @@ public class Minesweeper extends JFrame {
     private final int MINE_COUNT = 10;
     private JButton[][] buttons;
     private boolean[][] mines;
-    private boolean[][] shownmines;
+    private boolean[][] shownMines;
     private int[][] surroundCount;
     public Minesweeper() {
         setTitle("Minesweeper");
