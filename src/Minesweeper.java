@@ -33,6 +33,18 @@ public class Minesweeper extends JFrame {
         setVisible(true);
     }
 
+    setMine();
+    AdjacentMines();
+
+    private void setMine(){
+
+    }
+
+    private void AdjacentMines() {
+
+    }
+
+
     public static void main(String[] args) {
         Minesweeper minesweeper = new Minesweeper();
     }
