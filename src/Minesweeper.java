@@ -48,6 +48,14 @@ public class Minesweeper extends JFrame {
 
     }
 
+    private void uncovered() {
+
+    }
+
+    private boolean isGameWon() {
+
+    }
+
 
     public static void main(String[] args) {
         Minesweeper minesweeper = new Minesweeper();
