@@ -41,7 +41,15 @@ public class Minesweeper extends JFrame {
     }
 
     private void setMine(){
-
+        int minesPlaced = 0;
+        while (minesPlaced < MINE_COUNT){
+            int row = (int) (Math.random() * ROWS);
+            int col = (int) (Math.random() * COLS);
+            if (!mines[row][col]){
+                mines[row][col]=true;
+                minesPlaced++;
+            }
+        }
     }
 
     private void AdjacentMines() {
