@@ -36,6 +36,10 @@ public class Minesweeper extends JFrame {
     setMine();
     AdjacentMines();
 
+    private void clickCell(JButton Button) {
+
+    }
+
     private void setMine(){
 
     }
