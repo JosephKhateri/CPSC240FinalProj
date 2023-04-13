@@ -53,6 +53,20 @@ public class Minesweeper extends JFrame {
     }
 
     private void AdjacentMines() {
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                if (mines[row][col]) continue;
+                int count = 0;
+                for (int r = row - 1; r <= row + 1; r++) {
+                    for (int c = col - 1; c <= col + 1; c++) {
+                        if (r < 0 || r >= ROWS || c < 0 || c >= COLS) continue;
+                        if (mines[r][c]) count++;
+                    }
+                }
+                surroundCount[row][col] = count;
+            }
+        }
+    }
 
     }
 
