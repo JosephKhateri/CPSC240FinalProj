@@ -9,11 +9,17 @@ public class Minesweeper extends JFrame {
     private boolean[][] mines;
     private boolean[][] shownMines;
     private int[][] surroundCount;
+
     public Minesweeper() {
         setTitle("Minesweeper");
         setSize(500, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        buttons = new JButton[ROWS][COLS];
+        mines = new boolean[ROWS][COLS];
+        shownMines = new boolean[ROWS][COLS];
+        surroundCount = new int[ROWS][COLS];
+
 
         JPanel boardPanel = new JPanel(new GridLayout(10, 10));
 
