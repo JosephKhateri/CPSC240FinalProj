@@ -34,19 +34,20 @@ public class Minesweeper extends JFrame {
     }
 
     setMine();
+
     AdjacentMines();
 
     private void clickCell(JButton Button) {
 
     }
 
-    private void setMine(){
+    private void setMine() {
         int minesPlaced = 0;
-        while (minesPlaced < MINE_COUNT){
+        while (minesPlaced < MINE_COUNT) {
             int row = (int) (Math.random() * ROWS);
             int col = (int) (Math.random() * COLS);
-            if (!mines[row][col]){
-                mines[row][col]=true;
+            if (!mines[row][col]) {
+                mines[row][col] = true;
                 minesPlaced++;
             }
         }
@@ -68,10 +69,22 @@ public class Minesweeper extends JFrame {
         }
     }
 
-    }
 
-    private void uncovered() {
 
+    private void uncovered(int row, int col) {
+        if(shownMines[row] [col]) return;
+        shownMines[row][col] = true;
+        buttons[row][col].setEnabled(false);
+        buttons[row][col].setText(Integer.toString(surroundCount[row][col]));
+        if (surroundCount[row] [col] == 0){
+            for (int r = row - 1; r<= row + 1; r++){
+                for (int c = col - 1; c <= col + 1; c++){
+                    if (r<0 || r >= ROWS || c < 0 || c>= COLS) continue;
+                    if (!mines[r][c] && !shownMines[r] [c]);
+                    uncovered(r, c);
+                }
+            }
+        }
     }
 
     private boolean isGameWon() {
