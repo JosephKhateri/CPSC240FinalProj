@@ -48,7 +48,16 @@ public class Minesweeper extends JFrame {
         setVisible(true);
     }
 
-    private void clickCell(JButton Button) {
+    private void clickCell(int row, int col) {
+        if(mines[row][col]){
+            JOptionPane.showMessageDialog(this, "Mine hit! Game over :(");
+        }else{
+            uncovered(row, col);
+            if(isGameWon()){
+                JOptionPane.showMessageDialog(this, "WHOOO! YOU WON!");
+                System.exit(0);
+            }
+        }
 
     }
 
