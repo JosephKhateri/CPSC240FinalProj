@@ -12,6 +12,9 @@ public class Cell {
     public Cell(int row, int col) {
         this.row=row;
         this.col=col;
+        this.mine=false;
+        this.shown=false;
+        this.surroundingMines= ;
     }
 
 
