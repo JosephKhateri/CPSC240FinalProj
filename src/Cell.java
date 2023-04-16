@@ -25,6 +25,19 @@ public class Cell {
     public boolean hasMine() {
         return mine;
     }
-
-
+    public void setMine(boolean mine) {
+        this.mine = mine;
+    }
+    public boolean isShown() {
+        return shown;
+    }
+    public void setShown(boolean shown) {
+        this.shown = shown;
+    }
+    public int getSurroundingMines() {
+        return surroundingMines;
+    }
+    public void setSurroundingMines(int surroundingMines) {
+        this.surroundingMines = surroundingMines;
+    }
 }
