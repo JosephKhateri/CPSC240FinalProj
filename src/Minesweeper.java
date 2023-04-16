@@ -25,10 +25,23 @@ public class Minesweeper extends JFrame {
         adjacentMines();
 
         JPanel boardPanel = new JPanel(new GridLayout(10, 10));
-        for (int i = 0; i < 100; i++) {
-            JButton button = new JButton();
-            button.setPreferredSize(new Dimension(50, 50));
-            boardPanel.add(button);
+
+            for (int row = 0; row < ROWS; row++) {
+                for( int col = 0; col<COLS; col++){
+                    JButton button = new JButton();
+                    button.setPreferredSize(new Dimension(50,50));
+                    final int r = row;
+                    final int c = col;
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            clickCell(r,c);
+                        }
+                    });
+                    buttons[row][col]=button;
+                    boardPanel.add(button);
+                }
+
         }
 
         add(boardPanel);
@@ -51,7 +64,7 @@ public class Minesweeper extends JFrame {
         }
     }
 
-    private void AdjacentMines() {
+    private void adjacentMines() {
         for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
                 if (mines[row][col]) continue;
