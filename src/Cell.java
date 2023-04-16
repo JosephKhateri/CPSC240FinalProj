@@ -9,5 +9,10 @@ public class Cell {
     private boolean shown;
     private int surroundingMines;
 
+    public Cell(int row, int col) {
+        this.row=row;
+        this.col=col;
+    }
+
 
 }
