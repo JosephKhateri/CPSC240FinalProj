@@ -88,8 +88,17 @@ public class Minesweeper extends JFrame {
     }
 
     private boolean isGameWon() {
-
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                if (!mines[row][col] && !shownMines[row][col]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
+
+
 
 
     public static void main(String[] args) {
