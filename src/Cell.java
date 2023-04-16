@@ -14,7 +14,7 @@ public class Cell {
         this.col=col;
         this.mine=false;
         this.shown=false;
-        this.surroundingMines= ;
+        this.surroundingMines= 0;
     }
 
 
