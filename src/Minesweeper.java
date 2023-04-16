@@ -21,10 +21,10 @@ public class Minesweeper extends JFrame {
         mines = new boolean[ROWS][COLS];
         shownMines = new boolean[ROWS][COLS];
         surroundCount = new int[ROWS][COLS];
-
+        setMine();
+        adjacentMines();
 
         JPanel boardPanel = new JPanel(new GridLayout(10, 10));
-
         for (int i = 0; i < 100; i++) {
             JButton button = new JButton();
             button.setPreferredSize(new Dimension(50, 50));
@@ -34,10 +34,6 @@ public class Minesweeper extends JFrame {
         add(boardPanel);
         setVisible(true);
     }
-
-
-
-
 
     private void clickCell(JButton Button) {
 
@@ -71,8 +67,6 @@ public class Minesweeper extends JFrame {
         }
     }
 
-
-
     private void uncovered(int row, int col) {
         if(shownMines[row] [col]) return;
         shownMines[row][col] = true;
@@ -99,8 +93,6 @@ public class Minesweeper extends JFrame {
         }
         return true;
     }
-
-
 
 
     public static void main(String[] args) {
