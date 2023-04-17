@@ -51,6 +51,7 @@ public class Minesweeper extends JFrame {
     private void clickCell(int row, int col) {
         if(mines[row][col]){
             JOptionPane.showMessageDialog(this, "Mine hit! Game over :(");
+            System.exit(0);
         }else{
             uncovered(row, col);
             if(isGameWon()){
