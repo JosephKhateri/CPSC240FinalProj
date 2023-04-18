@@ -17,6 +17,11 @@ public class Cell {
         this.shown = false;
         this.surroundingMines = 0;
     }
+    {
+    public int getRow(){return row;}
+    public int getCol(){return col;}
+    public boolean hasMine(){
+    }
 }
 
 
