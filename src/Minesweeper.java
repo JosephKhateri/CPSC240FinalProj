@@ -25,13 +25,14 @@ public class Minesweeper extends JFrame {
         mines = new boolean[rows][cols];
         shownMines = new boolean[rows][cols];
         surroundCount = new int[rows][cols];
+
         setMine();
         adjacentMines();
 
-        JPanel boardPanel = new JPanel(new GridLayout(10, 10));
+        JPanel boardPanel = new JPanel(new GridLayout(rows, cols));
 
-            for (int row = 0; row < ROWS; row++) {
-                for( int col = 0; col<COLS; col++){
+            for (int row = 0; row < rows; row++) {
+                for( int col = 0; col<cols; col++){
                     JButton button = new JButton();
                     button.setPreferredSize(new Dimension(50,50));
                     final int r = row;
@@ -68,9 +69,9 @@ public class Minesweeper extends JFrame {
 
     private void setMine() {
         int minesPlaced = 0;
-        while (minesPlaced < MINE_COUNT) {
-            int row = (int) (Math.random() * ROWS);
-            int col = (int) (Math.random() * COLS);
+        while (minesPlaced < mineCount) {
+            int row = (int) (Math.random() * rows);
+            int col = (int) (Math.random() * cols);
             if (!mines[row][col]) {
                 mines[row][col] = true;
                 minesPlaced++;
