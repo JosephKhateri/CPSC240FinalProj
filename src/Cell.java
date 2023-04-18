@@ -22,7 +22,10 @@ public class Cell {
     public int getCol(){return col;}
     public boolean hasMine(){ return mine; }
     public void setMine(boolean mine){this.mine = mine;}
-    public boolean isShown(){
+    public boolean isShown(){ return shown; }
+    public void setShown(boolean shown){ this.shown = shown;}
+    public int getSurroundingMines(){return surroundingMines;}
+    public void setSurroundingMines(int surroundingMines){this.surroundingMines = surroundingMines;}
 
     }
 }
