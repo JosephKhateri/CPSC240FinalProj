@@ -11,7 +11,7 @@ public class DifficultySelector extends JDialog {
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(3, 1));
         JButton easyButton = new JButton("Easy");
-        JButton mediumButton = new JButton("experienced");
+        JButton mediumButton = new JButton("Experienced");
         JButton hardButton = new JButton("Vet");
 
         easyButton.addActionListener(new ActionListener() {
