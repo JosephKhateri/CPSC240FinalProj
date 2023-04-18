@@ -20,7 +20,10 @@ public class Cell {
     {
     public int getRow(){return row;}
     public int getCol(){return col;}
-    public boolean hasMine(){
+    public boolean hasMine(){ return mine; }
+    public void setMine(boolean mine){this.mine = mine;}
+    public boolean isShown(){
+
     }
 }
 
