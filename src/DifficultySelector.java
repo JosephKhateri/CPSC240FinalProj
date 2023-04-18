@@ -3,17 +3,50 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class DifficultySelector extends JDialog {
-    private DifficultySelector selectedDifficulty;
+    private DifficultyLevel selectedDifficulty;
 
     public DifficultySelector(JFrame parent){
         super(parent, "Select difficulty", true);
         setLocationRelativeTo(parent);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(3, 1));
-        JButton rookieButton = new JButton("rookie");
-        JButton experiencedButton = new JButton("experienced");
-        JButton VetButton = new JButton("Vet");
+        JButton easyButton = new JButton("Easy");
+        JButton mediumButton = new JButton("experienced");
+        JButton hardButton = new JButton("Vet");
+
+        easyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedDifficulty = DifficultyLevel.EASY;
+                dispose();
+
+            }
+        });
+
+        mediumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedDifficulty = DifficultyLevel.MEDIUM;
+                dispose();
+            }
+        });
+
+        hardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectedDifficulty = DifficultyLevel.HARD;
+            }
+        });
+
+        add(easyButton);
+        add(mediumButton);
+        add(hardButton);
+        pack();
 
 
+    }
+
+    public DifficultyLevel getSelectedDifficulty() {
+        return selectedDifficulty;
     }
 }
