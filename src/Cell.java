@@ -4,17 +4,18 @@ import java.awt.*;
 
 public class Cell {
     private int row;
-    private int col;
+    private int column;
     private boolean mine;
     private boolean shown;
     private int surroundingMines;
 
+
     public Cell(int row, int col) {
-        this.row=row;
-        this.col=col;
-        this.mine=false;
-        this.shown=false;
-        this.surroundingMines= 0;
+        this.row = row;
+        this.col = col;
+        this.mine = false;
+        this.shown = false;
+        this.
     }
     public int getRow() {
         return row;
