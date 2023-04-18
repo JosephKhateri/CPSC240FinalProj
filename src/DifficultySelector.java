@@ -35,6 +35,7 @@ public class DifficultySelector extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 selectedDifficulty = DifficultyLevel.HARD;
+                dispose();
             }
         });
 
