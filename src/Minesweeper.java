@@ -4,15 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Minesweeper extends JFrame {
-    private final int ROWS = 10;
-    private final int COLS = 10;
-    private final int MINE_COUNT = 10;
+    private int rows;
+    private int cols;
+    private int mineCount;
     private JButton[][] buttons;
     private boolean[][] mines;
     private boolean[][] shownMines;
     private int[][] surroundCount;
 
-    public Minesweeper() {
+    public Minesweeper(DifficultyLevel difficulty) {
         setTitle("Minesweeper");
         setSize(500, 500);
         setLocationRelativeTo(null);
