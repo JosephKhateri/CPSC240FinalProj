@@ -17,7 +17,7 @@ public class Cell {
         this.shown = false;
         this.surroundingMines = 0;
     }
-    {
+
     public int getRow() {return row;}
     public int getCol(){return col;}
     public boolean hasMine(){ return mine; }
@@ -28,6 +28,6 @@ public class Cell {
     public void setSurroundingMines(int surroundingMines){this.surroundingMines = surroundingMines;}
 
     }
-}
+
 
 
