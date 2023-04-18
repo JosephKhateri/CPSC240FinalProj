@@ -124,9 +124,23 @@ public class Minesweeper extends JFrame {
 
 
     public static void main(String[] args) {
-        Minesweeper minesweeper = new Minesweeper();
-    }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                DifficultySelector difficultySelector = new DifficultySelector(frame);
+                difficultySelector.setVisible(true);
+                DifficultyLevel selectedDifficulty = difficultySelector.getSelectedDifficulty();
+
+                if (selectedDifficulty != null) {
+                    Minesweeper minesweeper = new Minesweeper(selectedDifficulty);
+                } else {
+                    System.exit(0);
+                }
+                }});
+            }
+        }
 
 
-}
 
