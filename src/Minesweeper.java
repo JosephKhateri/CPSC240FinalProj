@@ -13,21 +13,26 @@ public class Minesweeper extends JFrame {
     private int[][] surroundCount;
 
     public Minesweeper(DifficultyLevel difficulty) {
+        this.rows = difficulty.getRows();
+        this.cols = difficulty.getCols();
+        this.mineCount = difficulty.getMines();
+
         setTitle("Minesweeper");
         setSize(500, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        buttons = new JButton[ROWS][COLS];
-        mines = new boolean[ROWS][COLS];
-        shownMines = new boolean[ROWS][COLS];
-        surroundCount = new int[ROWS][COLS];
+        buttons = new JButton[rows][cols];
+        mines = new boolean[rows][cols];
+        shownMines = new boolean[rows][cols];
+        surroundCount = new int[rows][cols];
+
         setMine();
         adjacentMines();
 
-        JPanel boardPanel = new JPanel(new GridLayout(10, 10));
+        JPanel boardPanel = new JPanel(new GridLayout(rows, cols));
 
-            for (int row = 0; row < ROWS; row++) {
-                for( int col = 0; col<COLS; col++){
+            for (int row = 0; row < rows; row++) {
+                for( int col = 0; col<cols; col++){
                     JButton button = new JButton();
                     button.setPreferredSize(new Dimension(50,50));
                     final int r = row;
@@ -64,9 +69,9 @@ public class Minesweeper extends JFrame {
 
     private void setMine() {
         int minesPlaced = 0;
-        while (minesPlaced < MINE_COUNT) {
-            int row = (int) (Math.random() * ROWS);
-            int col = (int) (Math.random() * COLS);
+        while (minesPlaced < mineCount) {
+            int row = (int) (Math.random() * rows);
+            int col = (int) (Math.random() * cols);
             if (!mines[row][col]) {
                 mines[row][col] = true;
                 minesPlaced++;
@@ -75,13 +80,13 @@ public class Minesweeper extends JFrame {
     }
 
     private void adjacentMines() {
-        for (int row = 0; row < ROWS; row++) {
-            for (int col = 0; col < COLS; col++) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
                 if (mines[row][col]) continue;
                 int count = 0;
                 for (int r = row - 1; r <= row + 1; r++) {
                     for (int c = col - 1; c <= col + 1; c++) {
-                        if (r < 0 || r >= ROWS || c < 0 || c >= COLS) continue;
+                        if (r < 0 || r >= rows || c < 0 || c >= cols) continue;
                         if (mines[r][c]) count++;
                     }
                 }
@@ -98,7 +103,7 @@ public class Minesweeper extends JFrame {
         if (surroundCount[row] [col] == 0){
             for (int r = row - 1; r<= row + 1; r++){
                 for (int c = col - 1; c <= col + 1; c++){
-                    if (r<0 || r >= ROWS || c < 0 || c>= COLS) continue;
+                    if (r<0 || r >= row || c < 0 || c>= col) continue;
                     if (!mines[r][c] && !shownMines[r] [c]);
                     uncovered(r, c);
                 }
@@ -107,8 +112,8 @@ public class Minesweeper extends JFrame {
     }
 
     private boolean isGameWon() {
-        for (int row = 0; row < ROWS; row++) {
-            for (int col = 0; col < COLS; col++) {
+        for (int row = 0; row < row; row++) {
+            for (int col = 0; col < col; col++) {
                 if (!mines[row][col] && !shownMines[row][col]) {
                     return false;
                 }
@@ -119,9 +124,23 @@ public class Minesweeper extends JFrame {
 
 
     public static void main(String[] args) {
-        Minesweeper minesweeper = new Minesweeper();
-    }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                DifficultySelector difficultySelector = new DifficultySelector(frame);
+                difficultySelector.setVisible(true);
+                DifficultyLevel selectedDifficulty = difficultySelector.getSelectedDifficulty();
+
+                if (selectedDifficulty != null) {
+                    Minesweeper minesweeper = new Minesweeper(selectedDifficulty);
+                } else {
+                    System.exit(0);
+                }
+                }});
+            }
+        }
 
 
-}
 
