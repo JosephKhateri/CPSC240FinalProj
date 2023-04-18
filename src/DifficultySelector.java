@@ -3,5 +3,5 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class DifficultySelector extends JDialog {
-    private DifficultyLevel
+    private DifficultySelector selectedDifficulty;
 }
