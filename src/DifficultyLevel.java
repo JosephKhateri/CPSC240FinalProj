@@ -26,7 +26,7 @@ public enum DifficultyLevel {
     public int getCols() {
         return cols;
     }
-    // number of mines for the grid
+    // number of mines for grid
     public int getMines() {
         return mines;
     }
