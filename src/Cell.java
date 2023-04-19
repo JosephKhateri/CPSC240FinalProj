@@ -2,6 +2,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+// The Cell class represents a single cell in a Minesweeper grid.
+
 public class Cell {
     private int row;
     private int col;
@@ -9,6 +11,7 @@ public class Cell {
     private boolean shown;
     private int surroundingMines;
 
+    // Constructor for the Cell class, taking row and column indices as input.
 
     public Cell(int row, int col) {
         this.row = row;
