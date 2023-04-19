@@ -16,7 +16,7 @@ public class Minesweeper extends JFrame {
         this.cols = difficulty.getCols();
         this.mineCount = difficulty.getMines();
         setTitle("Minesweeper");
-        setSize(500, 500);
+        setSize(cols * 50 + 16, rows * 50 + 39);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         buttons = new JButton[rows][cols];
