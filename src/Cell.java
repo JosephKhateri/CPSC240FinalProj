@@ -30,7 +30,7 @@ public class Cell {
     public int getCol(){
         return col;
     }
-    public boolean hasMine(){
+    public boolean isMine(){
         return mine;
     }
     public void setMine(boolean mine){
@@ -39,8 +39,8 @@ public class Cell {
     public boolean isShown(){
         return shown;
     }
-    public void setShown(boolean shown)
-    { this.shown = shown;
+    public void setShown(boolean shown) {
+        this.shown = shown;
     }
     public int getSurroundingMines(){
         return surroundingMines;
@@ -49,6 +49,10 @@ public class Cell {
 
     public boolean isFlag() {
         return flag;
+    }
+
+    public void setFlag(boolean status){
+        this.flag = status;
     }
 }
 
