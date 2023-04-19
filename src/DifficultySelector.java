@@ -2,9 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class DifficultySelector extends JDialog {
     private DifficultyLevel selectedDifficulty;
-    //DifficultySelector class is taking the parent as a parameter
+
+    /**
+     * Constructs a new Difficulty Selector dialog with the parent JFrame
+     * @param parent The parent JFrame of the dialog
+     */
+
     public DifficultySelector(JFrame parent){
         super(parent, "Select difficulty", true);
         setLocationRelativeTo(parent);
@@ -48,6 +54,10 @@ public class DifficultySelector extends JDialog {
 
     }
 
+    /**
+     * Gets the difficulty level selected
+     * @return the difficulty level selected
+     */
     public DifficultyLevel getSelectedDifficulty() {
         return selectedDifficulty;
     }
