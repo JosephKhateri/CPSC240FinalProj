@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class DifficultySelector extends JDialog {
     private DifficultyLevel selectedDifficulty;
-
+    //DifficultySelector class is taking the parent as a parameter
     public DifficultySelector(JFrame parent){
         super(parent, "Select difficulty", true);
         setLocationRelativeTo(parent);
@@ -14,6 +14,7 @@ public class DifficultySelector extends JDialog {
         JButton mediumButton = new JButton("Experienced");
         JButton hardButton = new JButton("Vet");
 
+        //Gives easy button actionlistener
         easyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,7 +23,7 @@ public class DifficultySelector extends JDialog {
 
             }
         });
-
+        //Gives medium button actionlistener
         mediumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,7 +31,7 @@ public class DifficultySelector extends JDialog {
                 dispose();
             }
         });
-
+        //Gives hard button actionlistener
         hardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,7 +39,7 @@ public class DifficultySelector extends JDialog {
                 dispose();
             }
         });
-
+        // Adds three buttons
         add(easyButton);
         add(mediumButton);
         add(hardButton);
