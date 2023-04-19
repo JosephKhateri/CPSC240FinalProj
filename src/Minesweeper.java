@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-
+/**
+ * Minesweeper game a graphical user interface.
+ *
+ * @author Joseph, Eric, Keegan
+ */
 public class Minesweeper extends JFrame {
     private int rows;
     private int cols;
@@ -11,6 +15,11 @@ public class Minesweeper extends JFrame {
     private JButton[][] buttons;
     private Cell[][] board;
 
+    /**
+     * Constructs a new Minesweeper game with a specified difficulty level.
+     *
+     * @param difficulty The difficulty level for the game.
+     */
     public Minesweeper(DifficultyLevel difficulty) {
         this.rows = difficulty.getRows();
         this.cols = difficulty.getCols();
@@ -22,6 +31,7 @@ public class Minesweeper extends JFrame {
         buttons = new JButton[rows][cols];
         board = new Cell[rows][cols];
 
+        // Initialize the board cells
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 board[row][col] = new Cell(row,col);
@@ -30,11 +40,12 @@ public class Minesweeper extends JFrame {
 
         setMine();
         adjacentMines();
-
+        // Create the board panel
         JPanel boardPanel = new JPanel(new GridLayout(rows, cols));
-
+        // Create and add buttons to the panel
             for (int row = 0; row < rows; row++) {
                 for( int col = 0; col<cols; col++){
+                    // Create a new button and set its properties
                     JButton button = new JButton();
                     button.setPreferredSize(new Dimension(50,50));
                     final int r = row;
@@ -71,6 +82,12 @@ public class Minesweeper extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Handles a cell click, revealing the cell or ending the game.
+     *
+     * @param row The row index of the clicked cell.
+     * @param col The column index of the clicked cell.
+     */
     private void clickCell(int row, int col) {
         if(board[row][col].isMine()){
             JOptionPane.showMessageDialog(this, "Mine hit! Game over :(");
@@ -85,6 +102,9 @@ public class Minesweeper extends JFrame {
 
     }
 
+    /**
+     * Randomly places the mines on the board.
+     */
     private void setMine() {
         int minesPlaced = 0;
         while (minesPlaced < mineCount) {
@@ -97,6 +117,9 @@ public class Minesweeper extends JFrame {
         }
     }
 
+    /**
+     * Calculates the number of adjacent mines for each cell on the board.
+     */
     private void adjacentMines() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -113,6 +136,13 @@ public class Minesweeper extends JFrame {
         }
     }
 
+    /**
+     * Uncover a cell on the board and reveals its content.
+     * If the cell has no adjacent mines, it uncovers its neighbors recursively.
+     *
+     * @param row The row index of the cell to uncover.
+     * @param col The column index of the cell to uncover.
+     */
     private void uncovered(int row, int col) {
         if(board[row][col].isShown()&&board[row][col].isMine()) return;
         board[row][col].setShown(true);
@@ -129,6 +159,11 @@ public class Minesweeper extends JFrame {
         }
     }
 
+    /**
+     * Checks if the game has been won by the player.
+     *
+     * @return true if the game is won, false otherwise.
+     */
     private boolean isGameWon() {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -141,7 +176,11 @@ public class Minesweeper extends JFrame {
     }
 
 
-
+    /**
+     * The main method to run the Minesweeper game.
+     *
+     * @param args Unused command-line arguments.
+     */
     public static void main(String[] args) {
 
         SwingUtilities.invokeLater(new Runnable() {
