@@ -103,7 +103,7 @@ public class Minesweeper extends JFrame {
         if (surroundCount[row] [col] == 0){
             for (int r = row - 1; r<= row + 1; r++){
                 for (int c = col - 1; c <= col + 1; c++){
-                    if (r<0 || r >= rows || c < 0 || c>= cols) continue;
+                    if (r < 0 || r >= rows || c < 0 || c >= cols) continue;
                     if (!mines[r][c] && !shownMines[r] [c])
                     uncovered(r, c);
                 }
@@ -112,15 +112,16 @@ public class Minesweeper extends JFrame {
     }
 
     private boolean isGameWon() {
-        for (int rows = 0; rows < rows; rows++) {
-            for (int cols = 0; cols < cols; cols++) {
-                if (!mines[rows][cols] && !shownMines[rows][cols]) {
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (!mines[row][col] && !shownMines[row][col]) {
                     return false;
                 }
             }
         }
         return true;
     }
+
 
 
     public static void main(String[] args) {
