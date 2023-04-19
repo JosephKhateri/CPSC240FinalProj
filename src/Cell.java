@@ -10,6 +10,7 @@ public class Cell {
     private boolean mine;
     private boolean shown;
     private int surroundingMines;
+    private boolean flag;
 
     // Constructor for the Cell class, taking row and column indices as input.
 
@@ -19,7 +20,9 @@ public class Cell {
         this.mine = false;
         this.shown = false;
         this.surroundingMines = 0;
+        this.flag = false;
     }
+
 
     public int getRow() {return row;}
     public int getCol(){return col;}
@@ -31,6 +34,7 @@ public class Cell {
     public void setSurroundingMines(int surroundingMines){this.surroundingMines = surroundingMines;}
 
     }
+
 
 
 
